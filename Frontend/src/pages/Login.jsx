@@ -23,7 +23,7 @@ const Login = () => {
 
        await axios
          .post(
-           "https://chat-gpt-clone-d5y7.onrender.com/api/auth/login",
+           "https://chat-gpt-clone-5fkp.onrender.com/api/auth/login",
            {
              email: form.email,
              password: form.password,

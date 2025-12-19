@@ -18,22 +18,29 @@ const Register = () => {
         setSubmitting(true);
         console.log(form);
 
-        axios.post("https://chat-gpt-clone-d5y7.onrender.com/api/auth/register", {
-            email: form.email,
-            fullName: {
+        axios
+          .post(
+            "https://chat-gpt-clone-5fkp.onrender.com/api/auth/register",
+            {
+              email: form.email,
+              fullName: {
                 firstName: form.firstname,
-                lastName: form.lastname
+                lastName: form.lastname,
+              },
+              password: form.password,
             },
-            password: form.password
-        }, {
-            withCredentials: true
-        }).then((res) => {
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
             console.log(res);
             navigate("/");
-        }).catch((err) => {
+          })
+          .catch((err) => {
             console.error(err);
-            alert('Registration failed (placeholder)');
-        })
+            alert("Registration failed (placeholder)");
+          });
 
         try {
             // Placeholder: integrate real registration logic / API call.
