@@ -21,21 +21,27 @@ const Login = () => {
 
         console.log(form);
 
-       await axios.post("http://localhost:3000/api/auth/login", {
-            email: form.email,
-            password: form.password
-        },
-            {
-                withCredentials: true
-            }
-        ).then((res) => {
-            console.log(res);
-            navigate("/");
-        }).catch((err) => {
-            console.error(err);
-        }).finally(() => {
-            setSubmitting(false);
-        });
+       await axios
+         .post(
+           "https://chat-gpt-clone-d5y7.onrender.com/api/auth/login",
+           {
+             email: form.email,
+             password: form.password,
+           },
+           {
+             withCredentials: true,
+           }
+         )
+         .then((res) => {
+           console.log(res);
+           navigate("/");
+         })
+         .catch((err) => {
+           console.error(err);
+         })
+         .finally(() => {
+           setSubmitting(false);
+         });
 
     }
 
